@@ -22,7 +22,7 @@ class UnixProcess extends ThreadAdapterAbstract
         $process    = !empty($options['process']) ? $options['process'] : 'php';
 
         if (!$scriptPath || !file_exists($scriptPath)) {
-            throw new Exception('Неверно указан скрипт для запуска процессов');
+            throw new Exception('РќРµРІРµСЂРЅРѕ СѓРєР°Р·Р°РЅ СЃРєСЂРёРїС‚ РґР»СЏ Р·Р°РїСѓСЃРєР° РїСЂРѕС†РµСЃСЃРѕРІ');
         }
 
         $args = str_replace('&', '\\&', http_build_query((array) $params));

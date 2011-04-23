@@ -17,7 +17,7 @@ class SocketStream extends ThreadAdapterAbstract
     {
     	$response = parent::getThreadResponse($thread);
     	if ($response) {
-    	    $response = explode("\r\n\r\n", $response, 2); // отрезаем хедеры
+    	    $response = explode("\r\n\r\n", $response, 2); // РѕС‚СЂРµР·Р°РµРј С…РµРґРµСЂС‹
     	    return end($response);
     	}
     	return $response;
@@ -44,7 +44,7 @@ class SocketStream extends ThreadAdapterAbstract
         $url = isset($options['threadUrl']) ? $options['threadUrl'] : null;
 
         if (!$url) {
-            throw new Exception('Неверно указан скрипт для запуска процессов');
+            throw new Exception('РќРµРІРµСЂРЅРѕ СѓРєР°Р·Р°РЅ СЃРєСЂРёРїС‚ РґР»СЏ Р·Р°РїСѓСЃРєР° РїСЂРѕС†РµСЃСЃРѕРІ');
         }
 
         $url = array_merge(array(
