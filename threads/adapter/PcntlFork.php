@@ -2,25 +2,27 @@
 
 require_once 'Interface.php';
 
-class PcntlFork implements ThreadAdapterInterface
+namespace Thread\Adapter;
+
+class PcntlFork extends Thread\AdapterAbstract
 {
     public function startThread($command, array $options = null)
     {
         $pid = pcntl_fork();
-        
+
         if ($pid === -1) {
              throw new Exception('Could not fork');
         }
-        
+
         if (!$pid) {
             // child process
-            
+
             if (isset($command['action']) && is_callable($command['action'])) {
                 call_user_func_array($command['action'], $command);
             }
             die;
         }
-        
+
         return $pid;
     }
 

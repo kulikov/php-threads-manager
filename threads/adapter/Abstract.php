@@ -2,7 +2,9 @@
 
 require_once 'Interface.php';
 
-abstract class ThreadAdapterAbstract implements ThreadAdapterInterface
+namespace Thread;
+
+abstract class AdapterAbstract implements Thread\AdapterInterface
 {
     public function getThreadResponse($thread)
     {

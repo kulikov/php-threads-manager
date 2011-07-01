@@ -1,6 +1,8 @@
 <?php
 
-require_once 'adapter/Interface.php';
+namespace Thread;
+
+require_once __DIR__ . '/adapter/Interface.php';
 
 class ThreadManager
 {
@@ -41,7 +43,7 @@ class ThreadManager
     	return $this;
     }
 
-    public function setAdapter(ThreadAdapterInterface $adapter)
+    public function setAdapter(Thread\AdapterInterface $adapter)
     {
     	$this->_adapter = $adapter;
     	return $this;
@@ -159,13 +161,17 @@ class ThreadManager
 
 
     /**
-     * @return ThreadAdapterInterface
+     * @return Thread\AdapterInterface
      */
     private function _getAdapter()
     {
         if ($this->_adapter === null) {
+
             $name = $this->_getOption('adapter');
-            require_once 'adapter/'. $name .'.php';
+            $name = preg_replace('/[^\w]/i', '', $name);
+
+            require_once __DIR__ . '/adapter/'. $name .'.php';
+
             $this->_adapter = new $name();
         }
         return $this->_adapter;

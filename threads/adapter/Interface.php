@@ -1,6 +1,8 @@
 <?php
 
-interface ThreadAdapterInterface
+namespace Thread;
+
+interface AdapterInterface
 {
     public function prepareThreadCommand($params, $options);
 

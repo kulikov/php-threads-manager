@@ -2,7 +2,9 @@
 
 require_once 'Abstract.php';
 
-class SocketStream extends ThreadAdapterAbstract
+namespace Thread\Adapter;
+
+class SocketStream extends Thread\AdapterAbstract
 {
     public function startThread($command, array $options = null)
     {

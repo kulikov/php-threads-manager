@@ -2,7 +2,9 @@
 
 require_once 'Abstract.php';
 
-class UnixProcess extends ThreadAdapterAbstract
+namespace Thread\Adapter;
+
+class UnixProcess extends Thread\AdapterAbstract
 {
     public function startThread($command, array $options = null)
     {
