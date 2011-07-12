@@ -24,6 +24,7 @@ class ThreadManager
      * Создает менеджер тредов.
      * Принимает настройки, список которых можно посмотреть в $this->_options
      *
+     * @param array|null $options
      * @return ThreadManager
      */
     public static function factory(array $options = null)
@@ -43,7 +44,7 @@ class ThreadManager
     	return $this;
     }
 
-    public function setAdapter(Thread\AdapterInterface $adapter)
+    public function setAdapter(AdapterInterface $adapter)
     {
     	$this->_adapter = $adapter;
     	return $this;
@@ -61,10 +62,13 @@ class ThreadManager
         return $this;
     }
 
+
     /**
      * Запускает выполнение всех тредов.
      * Можно ограничить количество одновременно работающих потоков
      * через опцию maxProcess. По-умолчинию не более 10
+     *
+     * @return ThreadManager
      */
     public function run()
     {
@@ -161,7 +165,7 @@ class ThreadManager
 
 
     /**
-     * @return Thread\AdapterInterface
+     * @return AdapterInterface
      */
     private function _getAdapter()
     {

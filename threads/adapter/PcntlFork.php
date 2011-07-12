@@ -1,17 +1,17 @@
 <?php
 
-require_once 'Interface.php';
-
 namespace Thread\Adapter;
 
-class PcntlFork extends Thread\AdapterAbstract
+require_once 'Abstract.php';
+
+class PcntlFork extends \Thread\AdapterAbstract
 {
     public function startThread($command, array $options = null)
     {
         $pid = pcntl_fork();
 
         if ($pid === -1) {
-             throw new Exception('Could not fork');
+             throw new \Exception('Could not fork');
         }
 
         if (!$pid) {

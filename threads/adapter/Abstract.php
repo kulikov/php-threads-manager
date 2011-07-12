@@ -1,10 +1,10 @@
 <?php
 
-require_once 'Interface.php';
-
 namespace Thread;
 
-abstract class AdapterAbstract implements Thread\AdapterInterface
+require_once 'Interface.php';
+
+abstract class AdapterAbstract implements \Thread\AdapterInterface
 {
     public function getThreadResponse($thread)
     {
