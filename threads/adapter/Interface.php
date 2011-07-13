@@ -1,6 +1,6 @@
 <?php
 
-namespace Thread;
+namespace Thread\Adapter;
 
 interface AdapterInterface
 {

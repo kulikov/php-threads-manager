@@ -4,7 +4,7 @@ namespace Thread\Adapter;
 
 require_once 'Abstract.php';
 
-class PcntlFork extends \Thread\AdapterAbstract
+class PcntlFork extends \Thread\Adapter\AdapterAbstract
 {
     public function startThread($command, array $options = null)
     {

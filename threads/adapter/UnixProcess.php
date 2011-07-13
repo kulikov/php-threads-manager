@@ -4,7 +4,7 @@ namespace Thread\Adapter;
 
 require_once 'Abstract.php';
 
-class UnixProcess extends \Thread\AdapterAbstract
+class UnixProcess extends \Thread\Adapter\AdapterAbstract
 {
     public function startThread($command, array $options = null)
     {

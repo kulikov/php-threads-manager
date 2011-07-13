@@ -2,12 +2,14 @@
 
 namespace Thread;
 
+use Thread\Adapter\UnixProcess;
+
 require_once __DIR__ . '/adapter/Interface.php';
 
 class ThreadManager
 {
     private
-        $_options            = array(
+        $_options = array(
             'timeout'            => 60,
             'scriptPath'         => null,
             'process'            => 'php',
@@ -176,6 +178,7 @@ class ThreadManager
 
             require_once __DIR__ . '/adapter/'. $name .'.php';
 
+            $name = 'Thread\\Adapter\\' . $name;
             $this->_adapter = new $name();
         }
         return $this->_adapter;
