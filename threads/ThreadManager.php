@@ -2,8 +2,6 @@
 
 namespace Thread;
 
-use Thread\Adapter\UnixProcess;
-
 require_once __DIR__ . '/adapter/Interface.php';
 
 class ThreadManager
