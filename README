@@ -2,7 +2,7 @@
 
 require_once 'threads/ThreadManager.php';
 
-$thrManager = ThreadManager::factory(array(
+$thrManager = Thread\ThreadManager::factory(array(
     'timeout'            => 10 * 60, // seconds
     'maxProcess'         => 10,
     'scriptPath'         => dirname(__FILE__) . '/worker.php', // path to worker script
