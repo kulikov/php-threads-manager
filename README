@@ -1,3 +1,4 @@
+```php
 <?php
 
 require_once 'threads/ThreadManager.php';
@@ -18,3 +19,4 @@ for ($i = 0; $i < 30; $i++) {
 }
 
 $thrManager->run(); // run it!
+```
