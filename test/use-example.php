@@ -22,7 +22,6 @@ $thrManager->run(); // run it!
 die;
 
 
-
 /**
 
 
@@ -41,7 +40,8 @@ class SignalHandlerContext
 
     public function callback()
     {
-        print '<pre>';        print_r($this->buffer);
+        print '<pre>';
+        print_r($this->buffer);
     	print "\n\n";
         exit(0);
     }
@@ -79,7 +79,8 @@ for ($i=0; $i < 10; $i++) {
 
 
 //while ($handlerContext->run) {
-//    print '<pre>';//    print_r($handlerContext->buffer);
+//    print '<pre>';
+//    print_r($handlerContext->buffer);
 //    print '- ';
 //    usleep(20000);
 //}
