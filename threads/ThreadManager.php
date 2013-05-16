@@ -8,12 +8,13 @@ class ThreadManager
 {
     private
         $_options = array(
-            'timeout'            => 60,
-            'scriptPath'         => null,
-            'process'            => 'php',
-            'maxProcess'         => 10,
-            'onCompliteCallback' => null,
-            'adapter'            => 'UnixProcess',
+            'timeout'               => 60,
+            'scriptPath'            => null,
+            'process'               => 'php',
+            'maxProcess'            => 10,
+            'onCompliteCallback'    => null,
+            'onAllCompliteCallback' => null,
+            'adapter'               => 'UnixProcess',
         ),
         $_adapter          = null,
         $_runningProcesses = array(),
@@ -41,6 +42,12 @@ class ThreadManager
     public function setCompliteCallback($callback)
     {
     	$this->_options['onCompliteCallback'] = $callback;
+    	return $this;
+    }
+
+    public function setAllCompliteCallback($callback)
+    {
+    	$this->_options['onAllCompliteCallback'] = $callback;
     	return $this;
     }
 
@@ -146,6 +153,11 @@ class ThreadManager
             }
 
             usleep(10000); // 0.01 секунды задержка в выполнении цикла. слишком часто спрашивать ответ не обязательно
+        }
+
+        $finalCallback = $this->_getOption('onAllCompliteCallback');
+        if ($finalCallback && is_callable($finalCallback)) {
+            call_user_func($finalCallback);
         }
     }
 
