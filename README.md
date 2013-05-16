@@ -19,4 +19,9 @@ for ($i = 0; $i < 30; $i++) {
 }
 
 $thrManager->run(); // run it!
+
+print("All processes finished on this line!");
+
+someOnAllCompliteCallback();
+
 ```
